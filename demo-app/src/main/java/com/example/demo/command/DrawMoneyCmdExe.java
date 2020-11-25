@@ -5,9 +5,11 @@ import com.example.demo.domain.aggregate.account.entity.Account;
 import com.example.demo.domain.gateway.AccountGateway;
 import com.example.demo.domain.seedwork.BaseOperationType;
 import com.example.demo.dto.DrawMoneyCmd;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
+@Component
 public class DrawMoneyCmdExe {
     @Resource
     private AccountGateway accountGateway;

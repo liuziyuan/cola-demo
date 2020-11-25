@@ -5,5 +5,4 @@ import lombok.Data;
 @Data
 public class ConsumeCO {
     private String accountNo;
-    private int accountOperationTypeCode;
 }
