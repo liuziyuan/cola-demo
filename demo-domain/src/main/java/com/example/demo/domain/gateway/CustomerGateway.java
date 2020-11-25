@@ -1,6 +1,6 @@
 package com.example.demo.domain.gateway;
 
-import com.example.demo.domain.aggregate.customer.Customer;
+import com.example.demo.domain.aggregate.customer.entity.Customer;
 
 public interface CustomerGateway {
     void save(Customer customer);

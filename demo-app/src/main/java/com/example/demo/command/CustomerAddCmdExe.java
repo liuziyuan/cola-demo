@@ -1,10 +1,10 @@
 package com.example.demo.command;
 
 import com.alibaba.cola.dto.Response;
-import com.example.demo.domain.DomainFactory;
-import com.example.demo.domain.aggregate.customer.Customer;
+import com.example.demo.domain.aggregate.customer.entity.Customer;
+import com.example.demo.domain.aggregate.customer.factory.CustomerFactory;
 import com.example.demo.domain.gateway.CustomerGateway;
-import com.example.demo.domain.aggregate.seedwork.BaseOperationType;
+import com.example.demo.domain.seedwork.BaseOperationType;
 import com.example.demo.dto.CustomerAddCmd;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,7 @@ public class CustomerAddCmdExe {
     private CustomerGateway customerGateway;
 
     public Response execute(CustomerAddCmd cmd) {
-        Customer customer = DomainFactory.getCustomer();
+        Customer customer = CustomerFactory.getCustomer();
         customer.getIdInfo().getAddress().setZipcode(cmd.getCustomerCO().getZipcode());
         customer.getIdInfo().getAddress().setStreet(cmd.getCustomerCO().getStreet());
         customer.getIdInfo().getAddress().setState(cmd.getCustomerCO().getState());

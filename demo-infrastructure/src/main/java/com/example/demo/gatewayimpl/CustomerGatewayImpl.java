@@ -1,6 +1,6 @@
 package com.example.demo.gatewayimpl;
 
-import com.example.demo.domain.aggregate.customer.Customer;
+import com.example.demo.domain.aggregate.customer.entity.Customer;
 import com.example.demo.domain.gateway.CustomerGateway;
 import com.example.demo.gatewayimpl.database.repository.CustomerRepository;
 import org.springframework.beans.BeanUtils;

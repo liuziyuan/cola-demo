@@ -1,8 +1,7 @@
 package com.example.demo.domain.service;
 
-import com.example.demo.domain.aggregate.account.Account;
-import com.example.demo.domain.aggregate.account.AccountDomainService;
-import com.example.demo.domain.aggregate.account.credit.CreditAccount;
+import com.example.demo.domain.aggregate.account.entity.Account;
+import com.example.demo.domain.aggregate.account.entity.CreditAccount;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,6 +1,6 @@
 package com.example.demo.gatewayimpl;
 
-import com.example.demo.domain.aggregate.account.Account;
+import com.example.demo.domain.aggregate.account.entity.Account;
 import com.example.demo.domain.gateway.AccountGateway;
 import com.example.demo.gatewayimpl.database.repository.AccountRepository;
 import org.springframework.stereotype.Component;

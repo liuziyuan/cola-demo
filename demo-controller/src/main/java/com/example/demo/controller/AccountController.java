@@ -1,11 +1,11 @@
 package com.example.demo.controller;
 
 import com.alibaba.cola.dto.Response;
-import com.alibaba.cola.dto.SingleResponse;
 import com.example.demo.api.AccountService;
 import com.example.demo.dto.AccountAddCmd;
-import com.example.demo.dto.ConsumeAddCmd;
-import com.example.demo.dto.DealAddCmd;
+import com.example.demo.dto.ConsumeMoneyCmd;
+import com.example.demo.dto.DepositMoneyCmd;
+import com.example.demo.dto.DrawMoneyCmd;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,17 +29,17 @@ public class AccountController {
     }
 
     @PostMapping(value = "/drawMoney")
-    public Response drawMoney(@RequestBody DealAddCmd dealAddCmd){
-        return accountService.drawMoney(dealAddCmd);
+    public Response drawMoney(@RequestBody DrawMoneyCmd drawMoneyCmd){
+        return accountService.drawMoney(drawMoneyCmd);
     }
 
     @PostMapping(value = "/depositMoney")
-    public Response depositMoney(@RequestBody DealAddCmd dealAddCmd){
-        return accountService.depositMoney(dealAddCmd);
+    public Response depositMoney(@RequestBody DepositMoneyCmd depositMoneyCmd){
+        return accountService.depositMoney(depositMoneyCmd);
     }
 
     @PostMapping(value = "/consumeMoney")
-    public Response consumeMoney(@RequestBody ConsumeAddCmd consumeAddCmd){
-        return accountService.consumeMoney(consumeAddCmd);
+    public Response consumeMoney(@RequestBody ConsumeMoneyCmd consumeMoneyCmd){
+        return accountService.consumeMoney(consumeMoneyCmd);
     }
 }

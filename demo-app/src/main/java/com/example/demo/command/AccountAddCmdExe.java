@@ -1,11 +1,11 @@
 package com.example.demo.command;
 
 import com.alibaba.cola.dto.Response;
-import com.example.demo.domain.DomainFactory;
 import com.example.demo.domain.aggregate.account.AccountType;
-import com.example.demo.domain.aggregate.account.credit.CreditAccount;
-import com.example.demo.domain.aggregate.account.debit.DebitAccount;
-import com.example.demo.domain.aggregate.customer.Customer;
+import com.example.demo.domain.aggregate.account.entity.CreditAccount;
+import com.example.demo.domain.aggregate.account.entity.DebitAccount;
+import com.example.demo.domain.aggregate.account.factory.AccountFactory;
+import com.example.demo.domain.aggregate.customer.entity.Customer;
 import com.example.demo.domain.gateway.AccountGateway;
 import com.example.demo.domain.gateway.CustomerGateway;
 import com.example.demo.dto.AccountAddCmd;
@@ -27,7 +27,7 @@ public class AccountAddCmdExe {
         Customer customer = customerGateway.getByCustomerId(cmd.getAccountCO().getCustomerId());
         switch (AccountType.fromCode(cmd.getAccountCO().getAccountType())){
             case DEBIT_ACCOUNT:
-                DebitAccount debitAccount = DomainFactory.getDebitAccount();
+                DebitAccount debitAccount = AccountFactory.getDebitAccount();
                 debitAccount.setAccountNo(cmd.getAccountCO().getAccountNo());
                 debitAccount.setAccountType(AccountType.DEBIT_ACCOUNT);
                 debitAccount.setRemainingSum(cmd.getAccountCO().getRemainingSum());
@@ -39,7 +39,7 @@ public class AccountAddCmdExe {
                 accountGateway.save(debitAccount);
                 break;
             case CREDIT_ACCOUNT:
-                CreditAccount creditAccount = DomainFactory.getCreditAccount();
+                CreditAccount creditAccount = AccountFactory.getCreditAccount();
                 creditAccount.setAccountNo(cmd.getAccountCO().getAccountNo());
                 creditAccount.setAccountType(AccountType.CREDIT_ACCOUNT);
                 creditAccount.setRemainingSum(cmd.getAccountCO().getRemainingSum());

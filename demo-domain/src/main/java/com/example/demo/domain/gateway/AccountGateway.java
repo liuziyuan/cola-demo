@@ -1,6 +1,6 @@
 package com.example.demo.domain.gateway;
 
-import com.example.demo.domain.aggregate.account.Account;
+import com.example.demo.domain.aggregate.account.entity.Account;
 
 import java.util.List;
 
