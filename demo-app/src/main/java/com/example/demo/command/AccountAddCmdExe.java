@@ -45,7 +45,9 @@ public class AccountAddCmdExe {
                 creditAccount.setRemainingSum(cmd.getAccountCO().getRemainingSum());
                 creditAccount.setBillDay(cmd.getAccountCO().getBillDay());
                 creditAccount.setMaxCreditAmount(cmd.getAccountCO().getMaxCreditAmount());
+                creditAccount.setCurrentMonthCreditSurplusAmount(cmd.getAccountCO().getMaxCreditAmount());
                 creditAccount.setMaxWithdrawalAmount(cmd.getAccountCO().getMaxWithdrawalAmount());
+                creditAccount.setCurrentMonthWithdrawalSurplusAmount(cmd.getAccountCO().getMaxWithdrawalAmount());
                 creditAccount.setRepaymentDate(cmd.getAccountCO().getRepaymentDate());
                 creditAccount.setCreator(cmd.getOperater());
                 creditAccount.setModifier(cmd.getOperater());

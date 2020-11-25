@@ -42,6 +42,8 @@ public abstract class Account extends BaseEntity {
                 remainingSumValue += amount;
                 break;
             case DRAW_MONEY:
+                remainingSumValue -= amount;
+                break;
             case CONSUME_MONEY:
                 remainingSumValue -= amount;
                 break;
