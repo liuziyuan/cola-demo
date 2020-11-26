@@ -26,17 +26,9 @@ public class TransferMoneyCmdExe {
         Account payeeAccount = accountGateway.getAccountByAccountNo(cmd.getPayee().getAccountNo());
         payerAccount.setBaseInfo(cmd.getOperater(), BaseOperationType.UPDATE);
         payeeAccount.setBaseInfo(cmd.getOperater(), BaseOperationType.UPDATE);
-        if (checkAccountType(payerAccount, AccountType.DEBIT_ACCOUNT)){
-            accountDomainService.transferAccounts((DebitAccount) payerAccount, payeeAccount, cmd.getAmount());
-        }else {
-            accountDomainService.transferAccounts((CreditAccount) payerAccount, payeeAccount, cmd.getAmount());
-        }
+        accountDomainService.transferAccounts(payerAccount, payeeAccount, cmd.getAmount());
         accountGateway.save(payerAccount);
         accountGateway.save(payeeAccount);
         return Response.buildSuccess();
-    }
-
-    private boolean checkAccountType(Account account, AccountType type){
-        return type.getCode() == account.getAccountType().getCode();
     }
 }

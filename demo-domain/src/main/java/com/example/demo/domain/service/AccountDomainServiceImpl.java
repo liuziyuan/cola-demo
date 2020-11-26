@@ -14,14 +14,19 @@ public class AccountDomainServiceImpl implements AccountDomainService {
         payee.depositMoney(amount);
     }
 
-    @Override
-    public void transferAccounts(DebitAccount payer, Account payee, double amount) {
-        payer.drawMoney(amount);
-        payee.depositMoney(amount);
-    }
+//    @Override
+//    public void transferAccounts(DebitAccount payer, Account payee, double amount) {
+//        payer.drawMoney(amount);
+//        payee.depositMoney(amount);
+//    }
+//
+//    @Override
+//    public void transferAccounts(CreditAccount payer, Account payee, double amount) {
+//        payer.drawMoney(amount);
+//        payee.depositMoney(amount);
+//    }
 
-    @Override
-    public void transferAccounts(CreditAccount payer, Account payee, double amount) {
+    public void transferAccounts(Account payer, Account payee, double amount){
         payer.drawMoney(amount);
         payee.depositMoney(amount);
     }

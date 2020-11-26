@@ -13,8 +13,6 @@ public interface AccountDomainService {
      */
     void consumeAccounts(CreditAccount payer, Account payee, double amount);
 
-    void transferAccounts(DebitAccount payer, Account payee, double amount);
-
-    void transferAccounts(CreditAccount payer, Account payee, double amount);
+    void transferAccounts(Account payer, Account payee, double amount);
 
 }
