@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface AccountGateway extends AccountRepository {
 
-    List<Account> AccountListByCustomerId(Long customerId);
+    List<Account> AccountListByCustomerId(long customerId);
 
 }

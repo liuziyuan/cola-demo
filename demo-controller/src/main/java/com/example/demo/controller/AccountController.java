@@ -1,14 +1,14 @@
 package com.example.demo.controller;
 
+import com.alibaba.cola.dto.MultiResponse;
 import com.alibaba.cola.dto.Response;
+import com.alibaba.cola.dto.SingleResponse;
 import com.example.demo.api.AccountService;
 import com.example.demo.dto.*;
+import com.example.demo.dto.clientobject.AccountCO;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -43,5 +43,14 @@ public class AccountController {
     @PostMapping(value = "/transferMoney")
     public Response transferMoney(@RequestBody TransferMoneyCmd transferMoneyCmd){
         return accountService.transferMoney(transferMoneyCmd);
+    }
+
+    @GetMapping(value = "/remainingSum")
+    public SingleResponse<Double> getAccountRemainingSum(RemainingSumQuery remainingSumQuery){
+        return accountService.getRemainingSum(remainingSumQuery);
+    }
+    @GetMapping(value = "/")
+    public MultiResponse<AccountCO> getAccountsByCustomerId(CustomerFindAccountsQuery customerFindAccountsQuery){
+        return accountService.getAccountsByCustomerId(customerFindAccountsQuery);
     }
 }

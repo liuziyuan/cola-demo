@@ -20,8 +20,8 @@ public class AccountGatewayImpl implements AccountGateway {
     }
 
     @Override
-    public List<Account> AccountListByCustomerId(Long customerId) {
-        return accountRepository.findAccountsByCustomer(customerId);
+    public List<Account> AccountListByCustomerId(long customerId) {
+        return accountRepository.findAccountsByCustomer_Id(customerId);
     }
 
     @Override
