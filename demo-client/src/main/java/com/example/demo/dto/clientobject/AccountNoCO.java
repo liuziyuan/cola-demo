@@ -3,6 +3,6 @@ package com.example.demo.dto.clientobject;
 import lombok.Data;
 
 @Data
-public class ConsumeCO {
+public class AccountNoCO {
     private String accountNo;
 }

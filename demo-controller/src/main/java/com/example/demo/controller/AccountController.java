@@ -2,10 +2,7 @@ package com.example.demo.controller;
 
 import com.alibaba.cola.dto.Response;
 import com.example.demo.api.AccountService;
-import com.example.demo.dto.AccountAddCmd;
-import com.example.demo.dto.ConsumeMoneyCmd;
-import com.example.demo.dto.DepositMoneyCmd;
-import com.example.demo.dto.DrawMoneyCmd;
+import com.example.demo.dto.*;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,5 +38,10 @@ public class AccountController {
     @PostMapping(value = "/consumeMoney")
     public Response consumeMoney(@RequestBody ConsumeMoneyCmd consumeMoneyCmd){
         return accountService.consumeMoney(consumeMoneyCmd);
+    }
+
+    @PostMapping(value = "/transferMoney")
+    public Response transferMoney(@RequestBody TransferMoneyCmd transferMoneyCmd){
+        return accountService.transferMoney(transferMoneyCmd);
     }
 }
