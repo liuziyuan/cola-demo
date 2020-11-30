@@ -1,9 +1,7 @@
 package com.example.demo.domain.gateway;
 
-import com.example.demo.domain.aggregate.customer.entity.Customer;
+import com.example.demo.domain.aggregate.customer.repository.CustomerRepository;
 
-public interface CustomerGateway {
-    void save(Customer customer);
-    void update(Customer customer);
-    Customer getByCustomerId(Long id);
+public interface CustomerGateway extends CustomerRepository {
+
 }

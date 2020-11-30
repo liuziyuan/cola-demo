@@ -6,13 +6,11 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class ConsumeMoneyCmd extends CommonCommand {
+public class TransferMoneyCmd extends CommonCommand{
     @NotNull
     private AccountNoCO payer;
     @NotNull
     private AccountNoCO payee;
     @NotNull
     private double amount;
-
-
 }

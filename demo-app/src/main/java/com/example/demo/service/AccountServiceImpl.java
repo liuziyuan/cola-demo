@@ -1,12 +1,14 @@
 package com.example.demo.service;
 
+import com.alibaba.cola.dto.MultiResponse;
 import com.alibaba.cola.dto.Response;
+import com.alibaba.cola.dto.SingleResponse;
 import com.example.demo.api.AccountService;
 import com.example.demo.command.*;
-import com.example.demo.dto.AccountAddCmd;
-import com.example.demo.dto.ConsumeMoneyCmd;
-import com.example.demo.dto.DepositMoneyCmd;
-import com.example.demo.dto.DrawMoneyCmd;
+import com.example.demo.command.query.CustomerFindAccountsQueryExe;
+import com.example.demo.command.query.RemainingSumQueryExe;
+import com.example.demo.dto.*;
+import com.example.demo.dto.clientobject.AccountCO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -21,6 +23,12 @@ public class AccountServiceImpl implements AccountService {
     private DepositMoneyCmdExe depositMoneyCmdExe;
     @Resource
     private ConsumeMoneyCmdExe consumeMoneyCmdExe;
+    @Resource
+    private TransferMoneyCmdExe transferMoneyCmdExe;
+    @Resource
+    private RemainingSumQueryExe remainingSumQueryExe;
+    @Resource
+    private CustomerFindAccountsQueryExe customerFindAccountsQueryExe;
 
     @Override
     public Response addAccount(AccountAddCmd cmd) {
@@ -38,5 +46,20 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Response consumeMoney(ConsumeMoneyCmd cmd) {
         return consumeMoneyCmdExe.execute(cmd);
+    }
+
+    @Override
+    public Response transferMoney(TransferMoneyCmd cmd) {
+        return transferMoneyCmdExe.execute(cmd);
+    }
+
+    @Override
+    public SingleResponse<Double> getRemainingSum(RemainingSumQuery query) {
+        return remainingSumQueryExe.execute(query);
+    }
+
+    @Override
+    public MultiResponse<AccountCO> getAccountsByCustomerId(CustomerFindAccountsQuery query) {
+        return customerFindAccountsQueryExe.execute(query);
     }
 }
