@@ -21,6 +21,9 @@ public class DrawMoneyCmdExe {
     @Resource
     private AccountGateway accountGateway;
 
+    // 扩展实现可以按照具体场景放在App Service, Execute, Domain Service, Domain中完成，具体看场景与业务。
+    // 从当前样例的合理性上，建议将扩展点写到Service中，保持DrawMoneyCmdExe只处理DrawMoney本身的业务。
+    // 如果需求上强制的DrawMoney过程中必须实现发短信功能，而不是一种扩展的概念，那么可以选择将扩展点写下本类。
     @Resource
     private ExtensionExecutor extensionExecutor;
 
