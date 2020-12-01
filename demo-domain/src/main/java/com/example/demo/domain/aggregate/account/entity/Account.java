@@ -27,7 +27,7 @@ public abstract class Account extends BaseEntity {
 
     // 聚合根应该禁止对其他聚合根的直接关联引用,聚合之间应该是弱耦合的
     // 聚合之间通过聚合根的唯一ID来关联,而不是直接对象引用的方式,外部的聚合对象如果在本聚合范围内管理,容易导致边界不清晰,增加聚合之间的耦合度
-    // Account与Customer的关联关系,建议直接以customerId的方式表达,此处为JPA常规的表达方式,非遵循DDD的设计原则
+    // Account与Customer的关联关系,建议直接以customerId的方式表达,此处为OOD对象关联关系的常规的表达方式,非遵循DDD Aggregate Root的设计原则
     @ManyToOne
     protected Customer customer;
 

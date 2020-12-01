@@ -13,6 +13,11 @@ public interface AccountDomainService {
      */
     void consumeAccounts(CreditAccount payer, Account payee, double amount);
 
+    /** 转账业务
+     * @param payer 付款账户
+     * @param payee 收款账户
+     * @param amount 交易金额
+     */
     void transferAccounts(Account payer, Account payee, double amount);
 
 }
